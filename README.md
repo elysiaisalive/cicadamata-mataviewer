@@ -3,7 +3,7 @@ PROVIDES FREE_CAMERA FUNCTIONS FOR MATAS"
 
 ## + INSTALLATION"
 1. Install [GDPatch](https://gdpatch.dev/)
-2. [Download this repo as a .zip](https://github.com/elysiaisalive/cicadamata-mataviewer.git)
+2. [Download this repo as a .zip](https://github.com/elysiaisalive/cicadamata-mataviewer/archive/refs/heads/master.zip)
 3. Unzip the mod into your mods folder located in (`GDPatch/mods/mataviewer`)
 4. You may now view freely.
 
