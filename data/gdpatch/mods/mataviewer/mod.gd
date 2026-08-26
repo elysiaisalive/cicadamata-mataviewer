@@ -108,8 +108,9 @@ func update_freecam(delta:float)->void:
 	_mouse_motion *= Config.SENSITIVITY;
 	
 	if get_player_camera() != null:
-		get_player_camera().global_rotation.x += _mouse_motion.y;
-		get_player_camera().global_rotation.y += _mouse_motion.x;
+		get_player_camera().rotation.x += _mouse_motion.y;
+		get_player_camera().rotation.y += _mouse_motion.x;
+		get_player_camera().rotation.x = clampf(get_player_camera().rotation.x, deg_to_rad(-89.0), deg_to_rad(89.0));
 
 		var _y_input: float = Input.get_axis("stomp", "jump");
 		var _y_dir: Vector3 = get_player_camera().global_basis * Vector3(0.0, _y_input, 0.0);
