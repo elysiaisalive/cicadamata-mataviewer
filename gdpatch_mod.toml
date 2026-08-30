@@ -5,17 +5,3 @@ name = "MataViewer"
 version = "1.0.0"
 authors = ["skyler"]
 description = "Adds a spectator-style camera toggle."
-
-[config.camera]
-meta.description = "Camera Settings"
-
-[config.camera.fov]
-name = "FOV"
-description = "The Field... Of View..."
-default = "90.0"
-type = "number"
-[config.camera.speed]
-name = "Speed"
-description = "Default freecam speed."
-default = "5.0"
-type = "number"

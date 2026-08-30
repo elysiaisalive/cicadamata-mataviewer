@@ -2,10 +2,8 @@ class_name Freecam extends Node
 
 
 var camera_ref: WeakRef;
-var freecam_fov: float;
 var freecam_enabled: bool;
 var freecam_speed: float;
-var reset_fov: float;
 var reset_xform: Transform3D;
 var mouse_motion: Vector2;
 var scroll_up: int;
@@ -17,8 +15,7 @@ var scroll_last_down: float;
 
 #region Virtual
 func _ready()->void:
-	freecam_speed = GDPatch.get_config_option('mataviewer', 'camera', 'speed') as float;
-	freecam_fov = GDPatch.get_config_option('mataviewer', 'camera', 'fov') as float;
+	freecam_speed = 5.0;
 	freecam_enabled = false;
 
 
@@ -82,13 +79,11 @@ func set_freecam(enabled:bool = false)->void:
 		if _glob._player != null && _glob._player.camera != null:
 			if !enabled:
 				_glob._player.camera.global_transform = reset_xform;
-				_glob._player.camera.fov = reset_fov;
 
 			freecam_enabled = enabled;
 			camera_ref = weakref(_glob._player.camera);
-			reset_fov = get_autoload('Config').FOV;
 			reset_xform = _glob._player.camera.global_transform;
-			_glob._player.camera.fov = freecam_fov;
+			_glob._player.camera.fov = get_autoload('Config').FOV;
 			_glob._player.set_process_unhandled_input(!enabled);
 			_glob._player.set_process_input(!enabled);
 			_glob._player.set_process(!enabled);
